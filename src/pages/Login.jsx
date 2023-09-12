@@ -5,7 +5,7 @@ import Logo from '@/assets/Logo.png';
 import { AtSymbolIcon, LockClosedIcon } from '@heroicons/react/24/outline';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../redux/slices/userSlice';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 // const formLogin = [
 //   {
@@ -96,9 +96,9 @@ const Login = () => {
         </form>
         <span className="font-poppins font-regular text-sm text-gray-600 mt-8">
           Belum punya akun? Registrasi{' '}
-          <span className="text-red-600">
-            <a href="/register">di sini</a>
-          </span>
+          <Link to={'/register'}>
+            <span className="text-red-600">di sini</span>
+          </Link>
         </span>
       </div>
       <div className="hidden sm:flex col-span-6">
