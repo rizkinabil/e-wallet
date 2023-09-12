@@ -4,6 +4,7 @@ import HeroSection from '@/components/Hero.jsx';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import Login from './Login';
 
 function getUser() {
   let user = localStorage.getItem('user');
@@ -105,14 +106,7 @@ const LandingPage = () => {
           </div>
         </Layout>
       ) : (
-        <div className="min-h-screen grid place-items-center">
-          <h1>harap login terlebih dahulu</h1>
-          <Link to="/login">
-            <button className="bg-red-600 w-[400px] h-20 rounded-md font-poppins font-bold text-[32px] text-white">
-              Login
-            </button>
-          </Link>
-        </div>
+        <Login />
       )}
     </>
   );
