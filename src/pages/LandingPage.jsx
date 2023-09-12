@@ -108,7 +108,7 @@ const LandingPage = () => {
         <div className="min-h-screen grid place-items-center">
           <h1>harap login terlebih dahulu</h1>
           <Link to="/login">
-            <button className="bg-red-600 w-[400px] h-20 rounded-md font-poppins font-bold text-[42px] text-white">
+            <button className="bg-red-600 w-[400px] h-20 rounded-md font-poppins font-bold text-[32px] text-white">
               Login
             </button>
           </Link>
