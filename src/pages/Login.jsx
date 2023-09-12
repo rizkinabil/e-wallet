@@ -4,23 +4,8 @@ import bgLogin from '@/assets/Illustrasi Login.png';
 import Logo from '@/assets/Logo.png';
 import { AtSymbolIcon, LockClosedIcon } from '@heroicons/react/24/outline';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUser } from '../redux/slices/userSlice';
+import { loginUser } from '../redux/slices/authSlice';
 import { useNavigate, Link } from 'react-router-dom';
-
-// const formLogin = [
-//   {
-//     label: 'email',
-//     icon: <AtSymbolIcon className="w-5 h-5 absolute ml-2 text-gray-500" />,
-//     type: 'email',
-//     placeholder: 'masukkan alamat email anda',
-//   },
-//   {
-//     label: 'password',
-//     icon: <LockClosedIcon className="w-5 h-5 absolute ml-2 text-gray-500" />,
-//     type: 'password',
-//     placeholder: 'masukkan password anda',
-//   },
-// ];
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -29,7 +14,7 @@ const Login = () => {
   const { loading, error } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -38,6 +23,7 @@ const Login = () => {
       password,
     };
     dispatch(loginUser(userCredential)).then((result) => {
+      console.log(result);
       if (result.payload) {
         setEmail('');
         setPassword('');
@@ -61,6 +47,7 @@ const Login = () => {
             <AtSymbolIcon className="w-5 h-5 absolute ml-2 text-gray-500" />
             <input
               type="email"
+              name="email"
               placeholder="masukkan email"
               required
               className="h-9 w-full pl-9"
@@ -71,28 +58,18 @@ const Login = () => {
             <LockClosedIcon className="w-5 h-5 absolute ml-2 text-gray-500" />
             <input
               type="password"
+              name="password"
               placeholder="password"
               required
               className="h-9 w-full pl-9"
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          {/* {formLogin.map((item, index) => {
-            return (
-              <div
-                key={index}
-                className="relative flex items-center outline outline-2 outline-gray-400 rounded-sm mx-auto w-96 sm:w-80 lg:w-[25rem] mb-8"
-              >
-                {item.icon}
-                <input type={item.type} placeholder={item.placeholder} required className="h-9 w-full pl-9" onChange={}/>
-              </div>
-            );
-          })} */}
           <button type="submit" className="w-full bg-red-500 rounded-sm text-white font-normal font-poppins h-10">
             {loading ? 'Loading...' : 'Login'}
           </button>
 
-          {error && <div className="text-red font-semibold">{error}</div>}
+          {error && <div className="text-red-600 font-semibold">{error}</div>}
         </form>
         <span className="font-poppins font-regular text-sm text-gray-600 mt-8">
           Belum punya akun? Registrasi{' '}

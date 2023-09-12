@@ -31,11 +31,10 @@ const LandingPage = () => {
       try {
         const dataService = await axios.get(`${urlApi}/services`, {
           headers: {
-            Authorization: `bearer ${import.meta.env.VITE_API_TOKEN}`,
+            Authorization: `bearer ${user.token}`,
           },
         });
         setMenu(dataService.data.data);
-        // setMenu(data.data);
       } catch (error) {
         console.log(error);
       }
@@ -48,7 +47,7 @@ const LandingPage = () => {
       try {
         const dataBanner = await axios.get(`${urlApi}/banner`, {
           headers: {
-            Authorization: `bearer ${import.meta.env.VITE_API_TOKEN}`,
+            Authorization: `bearer ${user.token}`,
           },
         });
         setBanner(dataBanner.data.data);
