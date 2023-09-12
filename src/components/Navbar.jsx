@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import companyLogo from '@/assets/Logo.png';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Link } from 'react-router-dom';
 
 const navLinks = [
   { paths: '/topup', title: 'Top Up' },
@@ -46,7 +47,7 @@ const Navbar = () => {
                   } ${index === navLinks.length - 1 ? 'mr-0' : 'mb-4'}`}
                   onClick={() => setActive(item.title)}
                 >
-                  <a href={item.paths}>{item.title}</a>
+                  <Link to={item.paths}>{item.title}</Link>
                 </li>
               ))}
             </ul>
