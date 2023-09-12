@@ -2,6 +2,7 @@ import React from 'react';
 import { AtSymbolIcon, LockClosedIcon, UserIcon } from '@heroicons/react/24/outline';
 import Logo from '@/assets/Logo.png';
 import bgLogin from '@/assets/Illustrasi Login.png';
+import { Link } from 'react-router-dom';
 
 const formRegister = [
   {
@@ -65,9 +66,9 @@ const Register = () => {
         </form>
         <span className="font-poppins font-regular text-sm text-gray-600 mt-8">
           Sudah punya akun? Login{' '}
-          <span className="text-red-600">
-            <a href="/login">di sini</a>
-          </span>
+          <Link to={'/login'}>
+            <span className="text-red-600">di sini</span>
+          </Link>
         </span>
       </div>
       <div className="hidden sm:flex col-span-6">
